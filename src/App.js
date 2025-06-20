@@ -28,7 +28,9 @@ function App() {
 
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:5000/nlp", {
+      console.log({ text: transcript });
+
+      const res = await fetch("http://127.0.0.1:5000/process", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: transcript }),
@@ -37,10 +39,13 @@ function App() {
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.error || "Erreur serveur");
+      console.log(data);
 
       setResponse(data.response);
       setError("");
     } catch (err) {
+      console.log("sendTranscript", err);
+
       setError(err.message);
     } finally {
       setLoading(false);
