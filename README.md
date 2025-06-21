@@ -1,92 +1,79 @@
-# Assistant Orange Money – Frontend
+# Assistant Orange Money – Frontend React
 
-Ce projet est une application web React qui sert d’interface utilisateur pour un assistant digital Orange Money. Elle permet aux utilisateurs de consulter leur solde, effectuer des opérations courantes (recharge, forfait internet, historique), et d’interagir avec l’assistant via la voix ou le texte.
+Ce projet est une interface utilisateur web développée avec **React**, servant de client à l’assistant vocal Orange Money. Il permet d’interagir avec un assistant intelligent pour simuler des opérations Orange Money par commandes vocales ou textuelles.
 
-## Fonctionnalités principales
+## Contexte
 
-- **Consultation des soldes** (principal, crédit communication, internet, bonus fidélité)
-- **Actions rapides** : accès direct à des opérations fréquentes
-- **Chat conversationnel** avec l’assistant (texte ou reconnaissance vocale)
-- **Lecture audio automatique** des réponses de l’assistant
-- **Reconnaissance vocale** (français) avec envoi automatique ou manuel
-- **Affichage des erreurs** et gestion des états de chargement
+> Ce projet fait partie d’un **MVP** où les traitements Orange Money sont **entièrement simulés côté backend**.  
+> Il communique avec le backend suivant :  
+> 👉 [assistant-backend (Flask)](https://github.com/ao627515/assistant-backend)
 
-## Prérequis
+Le frontend repose sur des bibliothèques de reconnaissance vocale compatibles navigateur. Un LLM local (via Ollama) est utilisé pour enrichir l’interaction avec un assistant conversationnel généraliste.
 
-- Node.js >= 14.x
-- npm >= 6.x
+## Fonctionnalités
+
+- Consultation simulée du solde, crédit, internet, bonus fidélité
+- Interface de chat vocal/texte avec lecture audio automatique des réponses
+- Reconnaissance vocale en français (avec [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition))
+- Affichage des erreurs, chargements, et gestion de l’état du micro
+- Actions rapides prédéfinies (boutons)
 
 ## Installation
 
-Clonez le dépôt puis installez les dépendances :
-
-```sh
-git clone <url-du-repo>
-cd assistant-frontend
+```bash
+git clone https://github.com/ao627515/assistant-frontend-react.git
+cd assistant-frontend-react
 npm install
 ```
 
-## Lancement en développement
+## Lancement
 
-```sh
+```bash
 npm start
 ```
 
-L’application sera accessible sur [http://localhost:3000](http://localhost:3000).
+Accessible sur [http://localhost:3000](http://localhost:3000)
 
-## Construction pour la production
+## Build production
 
-```sh
+```bash
 npm run build
 ```
 
-Le build sera généré dans le dossier `build/`.
+Résultat dans le dossier `build/`
 
 ## Tests
 
-```sh
+```bash
 npm test
 ```
 
-## Structure du projet
+## Structure
 
 ```
-assistant-frontend/
+assistant-frontend-react/
 ├── public/
-│   ├── index.html
-│   ├── manifest.json
-│   └── ...
 ├── src/
-│   ├── App.js           # Composant principal de l’application
-│   ├── App.css          # Styles additionnels
-│   ├── index.js         # Point d’entrée React
-│   ├── index.css        # Styles globaux
-│   ├── reportWebVitals.js
-│   └── setupTests.js
-├── package.json
-└── README.md
+│   ├── App.js          # Composant principal
+│   ├── services/       # Gestion des appels API
+│   ├── components/     # Composants réutilisables
+│   └── ...
+└── package.json
 ```
 
-## Configuration & Personnalisation
+## API attendue
 
-- **API Backend** : L’application communique avec un backend sur `http://localhost:5000` pour les soldes, le traitement des messages et l’audio.
-- **Reconnaissance vocale** : Utilise la librairie [`react-speech-recognition`](https://www.npmjs.com/package/react-speech-recognition). Vérifiez la compatibilité navigateur.
+Le frontend interroge un backend Flask local à `http://localhost:5000` :
 
-## Dépendances principales
-
-- [React](https://react.dev/)
-- [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
-- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
+- `GET /solde`
+- `POST /process`
+- `GET /audio/:audioId`
 
 ## Limitations
 
-- La reconnaissance vocale dépend du support navigateur.
-- L’API backend doit être disponible et compatible avec les routes `/solde`, `/process`, `/audio/:audioId`.
+- Compatibilité navigateur pour la reconnaissance vocale
+- Fonctionnement dépendant du lancement du backend Flask
 
 ## Licence
 
-Projet interne Orange Burkina Faso – Usage restreint.
-
----
-
-\*Assistant Orange Money – Votre partenaire
+MIT
