@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Assistant Orange Money – Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet est une application web React qui sert d’interface utilisateur pour un assistant digital Orange Money. Elle permet aux utilisateurs de consulter leur solde, effectuer des opérations courantes (recharge, forfait internet, historique), et d’interagir avec l’assistant via la voix ou le texte.
 
-## Available Scripts
+## Fonctionnalités principales
 
-In the project directory, you can run:
+- **Consultation des soldes** (principal, crédit communication, internet, bonus fidélité)
+- **Actions rapides** : accès direct à des opérations fréquentes
+- **Chat conversationnel** avec l’assistant (texte ou reconnaissance vocale)
+- **Lecture audio automatique** des réponses de l’assistant
+- **Reconnaissance vocale** (français) avec envoi automatique ou manuel
+- **Affichage des erreurs** et gestion des états de chargement
 
-### `npm start`
+## Prérequis
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Node.js >= 14.x
+- npm >= 6.x
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Clonez le dépôt puis installez les dépendances :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+git clone <url-du-repo>
+cd assistant-frontend
+npm install
+```
 
-### `npm run build`
+## Lancement en développement
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+L’application sera accessible sur [http://localhost:3000](http://localhost:3000).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Construction pour la production
 
-### `npm run eject`
+```sh
+npm run build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Le build sera généré dans le dossier `build/`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm test
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Structure du projet
 
-## Learn More
+```
+assistant-frontend/
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── ...
+├── src/
+│   ├── App.js           # Composant principal de l’application
+│   ├── App.css          # Styles additionnels
+│   ├── index.js         # Point d’entrée React
+│   ├── index.css        # Styles globaux
+│   ├── reportWebVitals.js
+│   └── setupTests.js
+├── package.json
+└── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Configuration & Personnalisation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **API Backend** : L’application communique avec un backend sur `http://localhost:5000` pour les soldes, le traitement des messages et l’audio.
+- **Reconnaissance vocale** : Utilise la librairie [`react-speech-recognition`](https://www.npmjs.com/package/react-speech-recognition). Vérifiez la compatibilité navigateur.
 
-### Code Splitting
+## Dépendances principales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [React](https://react.dev/)
+- [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
+- [@testing-library/react](https://testing-library.com/docs/react-testing-library/intro/)
 
-### Analyzing the Bundle Size
+## Limitations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- La reconnaissance vocale dépend du support navigateur.
+- L’API backend doit être disponible et compatible avec les routes `/solde`, `/process`, `/audio/:audioId`.
 
-### Making a Progressive Web App
+## Licence
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Projet interne Orange Burkina Faso – Usage restreint.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+\*Assistant Orange Money – Votre partenaire
