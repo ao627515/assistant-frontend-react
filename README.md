@@ -74,6 +74,13 @@ Le frontend interroge un backend Flask local à `http://localhost:5000` :
 - Compatibilité navigateur pour la reconnaissance vocale
 - Fonctionnement dépendant du lancement du backend Flask
 
+## Auteurs
+
+- [Tapsoba Faridatou](https://github.com/biabkaahfa)
+- [Ouédraogo Abdoul Aziz](https://github.com/ao627515)
+- [Simporé Elie](https://github.com/simporeelie)
+- [Sawadogo Adam Sharif](https://github.com/Oursdingo)
+
 ## Licence
 
 MIT
